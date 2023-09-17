@@ -23,31 +23,35 @@
         </button>
         <div class="navbar-collapse collapse show" id="navbarNavDropdown"style>
          <ul class="navbar-nav ml-auto">
-          <% if user_signed_in? %>
-          <li class="nav-item">
+           <li class="nav-link text-light">
+           <i class="fa-solid fa-house"></i>
            <%= link_to 'Home', root_path %>
+          <% if user_signed_in? %>
           </li>
-          <li class="nav-item">
-           <%= link_to 'Users', users_path %>
+          <li class="nav-link text-light">
+            <i class="fa-solid fa-users"></i>
+          　<%= link_to 'Users', users_path %>
           </li>
-          <li class="nav-item">
-           <%= link_to 'Books', books_path %>
+          <li class="nav-link text-light">
+            <i class="fa-thin fa-book-open"></i>
+            <%= link_to 'Books', books_path %>
           </li>
-          <li class="nav-item">
-           <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+          <li class="nav-link text-light">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            <%= link_to "Log out", destroy_user_session_path, method: :delete %>
           </li>
           <% else %>
-          <li class="nav-item">
-           <%= link_to 'Home', root_path %>
+          <li class="nav-link text-light">
+            <i class="fa-solid fa-link"></i>
+            <%= link_to 'About', '/home/about' %>
           </li>
-          <li class="nav-item">
-           <%= link_to 'About', '/home/about' %>
+          <li class="nav-link text-light">
+            <i class="fa-solid fa-user-plus"></i>
+            <%= link_to "Sign up", new_user_registration_path %>
           </li>
-          <li class="nav-item">
-           <%= link_to "Sign up", new_user_registration_path %>
-          </li>
-          <li class="nav-item">
-           <%= link_to "Log in", new_user_session_path %>
+          <li class="nav-link text-light">
+            <i class="fa-solid fa-right-to-bracket"></i>
+            <%= link_to "Log in", new_user_session_path %>
           </li>
           <% end %>
          </ul>
@@ -56,6 +60,9 @@
      </nav>
     </header>
      <main>
+     <% flash.each do |message_type, message| %>
+      <div class="flash-message <%= message_type %>"><%= message %></div>
+     <% end %>
      <p id="notice"></p>
      <%= yield %>
      </main>
