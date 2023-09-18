@@ -18,15 +18,15 @@
         <a class="navbar-brand" href="/">
          <span>Bookers</span>
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="true" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
          <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="navbar-collapse collapse show" id="navbarNavDropdown"style>
+        <div class="navbar-collapse collapse" id="navbarNavDropdown">
          <ul class="navbar-nav ml-auto">
           <% if user_signed_in? %>
           <li class="nav-link text-light">
            <%= link_to user_path(current_user) do %>
-            <i class="fa-solid fa-house"></i> Home
+            <i class="fa-solid fa-home"></i> Home
            <% end %>
           </li>
           <li class="nav-link text-light">
@@ -41,13 +41,13 @@
           </li>
           <li class="nav-link text-light">
            <%= link_to destroy_user_session_path, method: :delete do %>
-             <i class="fa-solid fa-right-from-bracket"></i> Log out
+             <i class="fa-solid fa-sign-out-alt"></i> Log out
            <% end %>
           </li>
           <% else %>
           <li class="nav-link text-light">
            <%= link_to root_path do %>
-            <i class="fa-solid fa-house"></i> Home
+            <i class="fa-solid fa-home"></i> Home
            <% end %>
           <li class="nav-link text-light">
            <%= link_to '/home/about' do %>
@@ -61,7 +61,7 @@
           </li>
           <li class="nav-link text-light">
            <%= link_to new_user_session_path do %>
-            <i class="fa-solid fa-right-to-bracket"></i> Log in
+            <i class="fa-solid fa-sign-in-alt"></i> Log in
            <% end %>
           </li>
           <% end %>
